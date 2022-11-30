@@ -3,7 +3,7 @@ class Ocdscardinal < Formula
   homepage "http://github.com/open-contracting/cardinal-lib"
   url "https://github.com/open-contracting/cardinal-rs/releases/download/0.1.0/ocdscardinal-0.1.0-x86_64-apple-darwin.zip"
   version "0.1.0"
-  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  sha256 "bdd3fab73fe034d79518c76cffe474dbb0a19eeea2387c66a59631d7f5f5a949"
   license "MIT"
   head "https://github.com/open-contracting/cardinal-rs.git", branch: "main"
 
