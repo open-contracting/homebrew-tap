@@ -1,4 +1,4 @@
-# Open-contracting Open-contracting
+# open-contracting Homebrew Tap
 
 ## How do I install these formulae?
 
