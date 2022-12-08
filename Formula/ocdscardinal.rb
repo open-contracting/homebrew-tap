@@ -1,8 +1,7 @@
 class Ocdscardinal < Formula
-  desc "Measure red flags and procurement indicators using OCDS data."
-  homepage "http://github.com/open-contracting/cardinal-lib"
+  desc "Measure red flags and procurement indicators using OCDS data"
+  homepage "https://github.com/open-contracting/cardinal-rs"
   url "https://github.com/open-contracting/cardinal-rs/releases/download/0.1.0/ocdscardinal-0.1.0-x86_64-apple-darwin.zip"
-  version "0.1.0"
   sha256 "bdd3fab73fe034d79518c76cffe474dbb0a19eeea2387c66a59631d7f5f5a949"
   license "MIT"
   head "https://github.com/open-contracting/cardinal-rs.git", branch: "main"

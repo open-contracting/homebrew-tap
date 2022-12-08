@@ -2,9 +2,9 @@
 
 ## How do I install these formulae?
 
-`brew install open-contracting/open-contracting/<formula>`
+`brew install open-contracting/tap/<formula>`
 
-Or `brew tap open-contracting/open-contracting` and then `brew install <formula>`.
+Or `brew tap open-contracting/tap` and then `brew install <formula>`.
 
 ## Documentation
 
