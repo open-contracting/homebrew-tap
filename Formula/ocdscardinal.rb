@@ -17,6 +17,6 @@ class Ocdscardinal < Formula
 
   test do
     (testpath/"test.jsonl").write("0\n")
-    assert_equal('{"": 1}\n', shell_output("#{bin}/ocdscardinal coverage test.jsonl"))
+    assert_equal("{\"\": 1}\n", shell_output("#{bin}/ocdscardinal coverage test.jsonl"))
   end
 end
