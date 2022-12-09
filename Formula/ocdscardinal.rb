@@ -2,17 +2,27 @@ class Ocdscardinal < Formula
   desc "Measure red flags and procurement indicators using OCDS data"
   homepage "https://github.com/open-contracting/cardinal-rs"
   license "MIT"
+  head "https://github.com/open-contracting/cardinal-rs.git", branch: "main"
+  url "https://github.com/open-contracting/cardinal-rs/archive/0.1.0.tar.gz"
+  sha256 "8408aea9b1f47369e07697c4bd2411179e18fa5c1e9fe5b79b9f2ff1dd712323"
 
-  if OS.mac?
-    url "https://github.com/open-contracting/cardinal-rs/releases/download/0.1.0/ocdscardinal-0.1.0-x86_64-apple-darwin.zip"
-    sha256 "bdd3fab73fe034d79518c76cffe474dbb0a19eeea2387c66a59631d7f5f5a949"
-  elsif OS.linux?
-    url "https://github.com/open-contracting/cardinal-rs/releases/download/0.1.0/ocdscardinal-0.1.0-x86_64-unknown-linux-gnu.zip"
-    sha256 "e321a94117db975c9564924071974ce44eb93a10ad8c7bde9734e409259bdf36"
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  # bottle do
+  #   root_url "https://github.com/open-contracting/cardinal-rs/releases/tag/0.1.0"
+  #   sha256 cellar: :any_skip_relocation, monterey:     ""
+  #   sha256 cellar: :any_skip_relocation, big_sur:      ""
+  #   sha256 cellar: :any_skip_relocation, catalina:     ""
+  #   sha256 cellar: :any_skip_relocation, x86_64_linux: ""
+  # end
+
+  depends_on "rust" => :build
+
   def install
-    bin.install "ocdscardinal"
+    system "cargo", "install", *std_cargo_args, *(ENV["CARGO_TARGET"] ? ["--target", ENV["CARGO_TARGET"]] : [])
   end
 
   test do
