@@ -8,7 +8,7 @@ class Ocdscardinal < Formula
     sha256 "bdd3fab73fe034d79518c76cffe474dbb0a19eeea2387c66a59631d7f5f5a949"
   elsif OS.linux?
     url "https://github.com/open-contracting/cardinal-rs/releases/download/0.1.0/ocdscardinal-0.1.0-x86_64-unknown-linux-gnu.zip"
-    sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b8559"
+    sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   end
 
   def install

@@ -1,0 +1,23 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    steps:
+      - id: setup-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+      # https://github.com/Homebrew/actions/tree/master/setup-homebrew
+      - id: cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.setup-homebrew.outputs.gems-path }}
+          key: ${{ runner.os }}-rubygems-${{ steps.setup-homebrew.outputs.gems-hash }}
+          restore-keys: ${{ runner.os }}-rubygems-
+      - if: steps.cache.outputs.cache-hit != 'true'
+        run: brew install-bundler-gems
+      - run: brew style --formula --display-cop-names --except-cops Homebrew/MoveToExtendOS Formula/ocdscardinal.rb
+      - run: brew audit --new-formula Formula/ocdscardinal.rb
