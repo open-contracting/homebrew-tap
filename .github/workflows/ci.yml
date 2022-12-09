@@ -10,15 +10,6 @@ jobs:
     steps:
       - id: setup-homebrew
         uses: Homebrew/actions/setup-homebrew@master
-      # https://github.com/Homebrew/actions/tree/master/setup-homebrew
-      - id: cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.setup-homebrew.outputs.gems-path }}
-          key: ${{ runner.os }}-rubygems-${{ steps.setup-homebrew.outputs.gems-hash }}
-          restore-keys: ${{ runner.os }}-rubygems-
-      - if: steps.cache.outputs.cache-hit != 'true'
-        run: brew install-bundler-gems
       - run: brew style --formula --display-cop-names --except-cops Homebrew/MoveToExtendOS Formula/ocdscardinal.rb
       - run: brew audit --new-formula Formula/ocdscardinal.rb
       - run: brew install Formula/ocdscardinal.rb
